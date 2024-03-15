@@ -370,6 +370,23 @@ function resetGame() {
     magaiba.classList.add("magaiba-corriendo");
     suelo.style.animationDuration = (3/gameVel)+"s";
 }
+document.addEventListener('DOMContentLoaded', function() {
+    var targetElement = document.querySelector('.main');
+    function scrollToMainContent() {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.addEventListener('touchstart', function(event) {
+        if (!event.target.closest('a') && !event.target.closest('button')) {
+            scrollToMainContent();
+            Saltar()
+            if ( parado) {
+        resetGame();
+    }
+        }
+        
+    });
+});
 
 function Saltar(){
     if(magaibaPosY === sueloY){
